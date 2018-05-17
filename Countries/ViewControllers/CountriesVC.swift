@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import ObjectMapper
+import Kingfisher
 
 class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -23,6 +24,8 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
 
         configureTableView()
+        
+        fillUpWithData()
     }
     
     func configureTableView() {
@@ -30,6 +33,10 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.dataSource          = self
         tableView.separatorStyle      = .singleLine
         tableView.backgroundColor     = UIColor.white
+    }
+    
+    func fillUpWithData() {
+        title = "Countries"
     }
     
     func getCountriesFromCacheOrUrl() {
@@ -90,7 +97,12 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell") as! CountryCell
-
+        let country                     = self.countries[indexPath.row]
+        cell.nameLabel.text             = country.name ?? ""
+        cell.capitalCityLabel.text      = country.capital ?? ""
+        cell.logoImageView.kf.setImage(with: URL(string: country.country_info?.flag ?? ""))
+        cell.shortDescriptionLabel.text = country.description_small ?? ""
+        
         return cell
     }
 }
