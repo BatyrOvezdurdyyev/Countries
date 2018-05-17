@@ -74,8 +74,26 @@ class DetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        return UITableViewCell()
+        if indexPath.row != 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailsCell") as! DetailsCell
+            
+            let imagesArray  = ["i-star", "i-face", "i-earth"]
+            let titleArray   = ["Country", "Population", "Continent"]
+            let detailsArray = [country.capital ?? "", country.population ?? 0, country.continent ?? ""] as [Any]
+            
+            cell.imageView?.image      = UIImage(named: imagesArray[indexPath.row])
+            cell.textLabel?.text       = titleArray[indexPath.row]
+            cell.detailTextLabel?.text = "\(detailsArray[indexPath.row])"
+            
+            cell.configure()
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionCell") as! DescriptionCell
+            cell.descriptinLabel.text = country.descriptin ?? ""
+            
+            cell.configure()
+            return cell
+        }
     }
     
 }
