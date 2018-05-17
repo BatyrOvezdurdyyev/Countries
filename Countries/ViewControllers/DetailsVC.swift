@@ -9,7 +9,7 @@
 import UIKit
 import ImageSlideshow
 
-class CountryDetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
