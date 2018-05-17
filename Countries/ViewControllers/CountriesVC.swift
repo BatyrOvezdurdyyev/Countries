@@ -115,6 +115,16 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let lastElement = self.countries.count - 1
+        if (indexPath.row == lastElement) {
+            if (nextPageUrl != "") {
+                getAllCountriesFromServer(urlString: nextPageUrl)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
