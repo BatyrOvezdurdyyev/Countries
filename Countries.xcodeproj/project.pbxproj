@@ -15,6 +15,7 @@
 		0C4592FB20AD7E5000C0D4D6 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4592FA20AD7E5000C0D4D6 /* Country.swift */; };
 		0C4592FD20AD7E6400C0D4D6 /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4592FC20AD7E6400C0D4D6 /* CountryInfo.swift */; };
 		0C4592FF20AD7E7000C0D4D6 /* CountriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4592FE20AD7E7000C0D4D6 /* CountriesResponse.swift */; };
+		41F0DBDE92DAD753C35F825A /* Pods_Countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE516D02833FC73F036CD8EA /* Pods_Countries.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,9 @@
 		0C4592FA20AD7E5000C0D4D6 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		0C4592FC20AD7E6400C0D4D6 /* CountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
 		0C4592FE20AD7E7000C0D4D6 /* CountriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesResponse.swift; sourceTree = "<group>"; };
+		BC1E74AF1BD9852687979A24 /* Pods-Countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.release.xcconfig"; path = "Pods/Target Support Files/Pods-Countries/Pods-Countries.release.xcconfig"; sourceTree = "<group>"; };
+		FE516D02833FC73F036CD8EA /* Pods_Countries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Countries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF462F7165721C43ADC8A8ED /* Pods-Countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Countries/Pods-Countries.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41F0DBDE92DAD753C35F825A /* Pods_Countries.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				0C4592E120AD7B2F00C0D4D6 /* Countries */,
 				0C4592E020AD7B2F00C0D4D6 /* Products */,
+				D61565532DAB162ACCB4E231 /* Pods */,
+				918365BB4F48E9240AE056AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +112,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		918365BB4F48E9240AE056AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE516D02833FC73F036CD8EA /* Pods_Countries.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D61565532DAB162ACCB4E231 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF462F7165721C43ADC8A8ED /* Pods-Countries.debug.xcconfig */,
+				BC1E74AF1BD9852687979A24 /* Pods-Countries.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C4592F120AD7B3100C0D4D6 /* Build configuration list for PBXNativeTarget "Countries" */;
 			buildPhases = (
+				A61A17A99DA96982A6DABE4E /* [CP] Check Pods Manifest.lock */,
 				0C4592DB20AD7B2F00C0D4D6 /* Sources */,
 				0C4592DC20AD7B2F00C0D4D6 /* Frameworks */,
 				0C4592DD20AD7B2F00C0D4D6 /* Resources */,
+				0E1F67ADACF1CF1934B39240 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +196,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E1F67ADACF1CF1934B39240 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Countries/Pods-Countries-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Countries/Pods-Countries-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A61A17A99DA96982A6DABE4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Countries-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0C4592DB20AD7B2F00C0D4D6 /* Sources */ = {
@@ -322,6 +393,7 @@
 		};
 		0C4592F220AD7B3100C0D4D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF462F7165721C43ADC8A8ED /* Pods-Countries.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -341,6 +413,7 @@
 		};
 		0C4592F320AD7B3100C0D4D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC1E74AF1BD9852687979A24 /* Pods-Countries.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
