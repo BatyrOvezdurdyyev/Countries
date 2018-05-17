@@ -33,6 +33,7 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.dataSource          = self
         tableView.separatorStyle      = .singleLine
         tableView.backgroundColor     = UIColor.white
+        tableView.estimatedRowHeight  = 44.0
     }
     
     func fillUpWithData() {
@@ -112,5 +113,9 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         cell.configure()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }
