@@ -28,8 +28,8 @@ class DetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         configureImageSlideShow()
         configureTableView()
+        updateUI()
         fillUpWithData()
-        
     }
     
     func configureTableView() {
@@ -39,6 +39,13 @@ class DetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.separatorStyle     = .singleLine
         tableView.backgroundColor    = UIColor.clear
         tableView.estimatedRowHeight = 44
+    }
+    
+    func updateUI() {
+        backButton.setTitleColor(UIColor.white, for: .normal)
+        backButton.tintColor             = UIColor.white
+        countryNameLabel.numberOfLines   = 0
+        cornerRadiusView.backgroundColor = UIColor.white
     }
     
     func fillUpWithData() {
