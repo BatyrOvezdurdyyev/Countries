@@ -19,6 +19,7 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var countries: [Country] = []
     var nextPageUrl: String  = ""
     var key                  = "cachedKey"
+    var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         configureTableView()
         updateUI()
         fillUpWithData()
+        getCountriesFromCacheOrUrl()
     }
     
     func configureTableView() {
@@ -34,6 +36,15 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.separatorStyle      = .singleLine
         tableView.backgroundColor     = UIColor.white
         tableView.estimatedRowHeight  = 44.0
+        
+        self.refreshControl           = UIRefreshControl()
+        self.refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+        self.tableView.refreshControl = refreshControl
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        self.getCountriesFromCacheOrUrl()
+        self.refreshControl.endRefreshing()
     }
     
     func fillUpWithData() {
