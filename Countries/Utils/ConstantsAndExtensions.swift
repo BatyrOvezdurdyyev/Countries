@@ -11,4 +11,13 @@ import UIKit
 // Constants
 let userDefaults = UserDefaults.standard
 
+// Extensions
+
+extension UIView {
+    func roundCorners(cornerRadius: Double) {
+        self.layer.cornerRadius = CGFloat(cornerRadius)
+        self.clipsToBounds = true
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+}
 

@@ -46,6 +46,7 @@ class DetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         backButton.tintColor             = UIColor.white
         countryNameLabel.numberOfLines   = 0
         cornerRadiusView.backgroundColor = UIColor.white
+        cornerRadiusView.roundCorners(cornerRadius: 20)
     }
     
     func fillUpWithData() {
