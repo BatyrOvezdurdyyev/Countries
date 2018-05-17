@@ -20,6 +20,14 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var nextPageUrl: String  = ""
     var key                  = "cachedKey"
     var refreshControl: UIRefreshControl!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
