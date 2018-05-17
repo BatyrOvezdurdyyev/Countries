@@ -17,12 +17,18 @@ class DetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var cornerRadiusView: UIView!
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     var country: Country!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureImageSlideShow()
         configureTableView()
+        fillUpWithData()
         
     }
     
@@ -33,6 +39,30 @@ class DetailsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.separatorStyle     = .singleLine
         tableView.backgroundColor    = UIColor.clear
         tableView.estimatedRowHeight = 44
+    }
+    
+    func fillUpWithData() {
+        countryNameLabel.text = country.name ?? ""
+        backButton.setTitle("  Countries", for: .normal)
+        backButton.setImage(UIImage(named: "back"), for: .normal)
+    }
+    
+    func configureImageSlideShow() {
+        bannerImagesView.backgroundColor   = UIColor.clear
+        bannerImagesView.contentScaleMode  = .scaleAspectFill
+        bannerImagesView.clipsToBounds     = true
+        bannerImagesView.slideshowInterval = 5
+        bannerImagesView.activityIndicator = DefaultActivityIndicator()
+        
+        var inputSource = [InputSource]()
+        if (country.country_info?.images?.count)! == 0 {
+            inputSource.append(KingfisherSource(urlString: country.country_info?.flag ?? "")!)
+        } else {
+            for image in (country.country_info?.images)! {
+                inputSource.append(KingfisherSource(urlString: image)!)
+            }
+        }
+        bannerImagesView.setImageInputs(inputSource)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
