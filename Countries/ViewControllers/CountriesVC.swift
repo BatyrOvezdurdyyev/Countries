@@ -24,7 +24,7 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
 
         configureTableView()
-        
+        updateUI()
         fillUpWithData()
     }
     
@@ -37,6 +37,13 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     func fillUpWithData() {
         title = "Countries"
+    }
+    
+    func updateUI() {
+        
+        errorMessageLabel.numberOfLines = 0
+        errorMessageLabel.font          = UIFont.systemFont(ofSize: 14)
+        errorMessageLabel.textColor     = UIColor.darkGray
     }
     
     func getCountriesFromCacheOrUrl() {
@@ -103,6 +110,7 @@ class CountriesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.logoImageView.kf.setImage(with: URL(string: country.country_info?.flag ?? ""))
         cell.shortDescriptionLabel.text = country.description_small ?? ""
         
+        cell.configure()
         return cell
     }
 }
